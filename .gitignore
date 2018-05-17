@@ -1,0 +1,17 @@
+# Windows:
+Thumbs.db
+Desktop.ini
+
+# Mac
+.DS_Store
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+
+# My configurations:
+.project
+.pydevproject
+.idea
