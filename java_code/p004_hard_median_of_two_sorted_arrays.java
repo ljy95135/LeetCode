@@ -2,7 +2,7 @@
 // assume no empty list
 
 // another possible way is every time moves forward min(len1, k/2) and k is the number of elems we need to throw
-class p004_hard_median_of_two_sorted_arrays {
+class medianOfTwoSortedArrays {
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
         if (nums1.length > nums2.length) {
             int[] tmp = nums1;

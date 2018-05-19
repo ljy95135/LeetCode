@@ -1,9 +1,13 @@
 # assume all(coin>0 in coins)
 # no use for coinValue>amount
 # dummyHead: make index==coninValue
-from math import ceil
+
+# modification: amount's length is too long, not go one by one
+# min(combin1, combin2, ...)+1
+# update len(coins) times
 
 
+# can be even faster when not use dp but minus biggest coin
 class Solution:
     def coinChange(self, coins, amount):
         """
@@ -12,7 +16,7 @@ class Solution:
         :rtype: int
         """
         # handle amount = 0 and < 0
-        # O(n^2) n is amount, too slow when amount is huge
+        # O(S*n) n is len(coin) and S is amount
         if amount < 0:
             return -1
         if amount == 0:
@@ -23,10 +27,12 @@ class Solution:
         for i, v in enumerate(result):
             if v:
                 continue
-            for ii in range(ceil(i / 2) + 1):  # find smallest combination
-                if result[ii] == -1 or result[i - ii] == -1:
+            for coin_value in coins:  # find smallest combination
+                if i - coin_value < 0:  # make sure index not negative, not the syntax meaning
                     continue
-                num = result[ii] + result[i - ii]
+                if result[i - coin_value] == -1:
+                    continue
+                num = result[i - coin_value] + 1
                 if result[i] is None or num < result[i]:
                     result[i] = num
             if result[i] is None:
