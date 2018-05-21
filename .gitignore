@@ -11,6 +11,9 @@ Desktop.ini
 *.egg
 *.egg-info
 
+# Java:
+*.class
+
 # My configurations:
 .project
 .pydevproject
